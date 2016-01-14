@@ -10,7 +10,7 @@ import android.content.Intent;
 
 public class ListIntentActivity extends ListActivity {
   	
-	private String[] options = {"Explicit", "Maps", "Open Dialer", "Exit"};
+	private final String[] options = {"Explicit", "Maps", "Open Dialer", "Exit"};
 	private ArrayAdapter<String> adapt = null;
 	
     @Override
