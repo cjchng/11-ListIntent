@@ -40,7 +40,15 @@ public class ListIntentActivity extends ListActivity {
     		case 1 : {
     			Uri uri = Uri.parse("geo:0,0?q=175+forest+street+waltham+ma");
     			Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-    			startActivity(intent);
+
+				/*For API18 and 19 Google Maps is not on Launch Pad
+             	 so should first check if Package is present to avoid app crashing.
+             	 The API 23 emulator using the Intel instruction set would also crash here
+             	 without first checking.
+            	*/
+				if (intent.resolveActivity(getPackageManager()) != null) {
+					startActivity(intent);
+				}
     			break;
     		}
     		
